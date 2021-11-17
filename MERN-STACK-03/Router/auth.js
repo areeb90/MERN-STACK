@@ -11,29 +11,29 @@ require("../models/userSchema")
 // To get data from Backend to Frontend
 
 // USING PROMISES
-// router.post('/register', (req, res)=>{
+router.post('/register', (req, res)=>{
 
-//     console.log(req.body)
-//     // res.json({message: req.body})
-//     const {name , email, phone, password, cpassword} = req.body
-//     if (!name || !email || !phone || !password || !cpassword){
-//         return res.json({error:"failed to signup"})
-//     }
+    console.log(req.body)
+    // res.json({message: req.body})
+    const {name , email, phone, password, cpassword} = req.body
+    if (!name || !email || !phone || !password || !cpassword){
+        return res.json({error:"failed to signup"})
+    }
     
-//     User.findOne({email:email})
-//         .then((userExist)=>{
-//             if (userExist){
-//                 return res.json("User Already exist")
-//         }
+    User.findOne({email:email})
+        .then((userExist)=>{
+            if (userExist){
+                return res.json("User Already exist")
+        }
 
-//         const user = new User({name , email , phone , password , cpassword})
+        const user = new User({name , email , phone , password , cpassword})
 
-//         user.save().then(()=>{
-//             return res.status(201).json({message:"user registered sucessfully"})
-//         }).catch((err) => {return res.status(500).json("User registration failed")})
-//         }).catch(err =>{console.log(err)})
+        user.save().then(()=>{
+            return res.status(201).json({message:"user registered sucessfully"})
+        }).catch((err) => {return res.status(500).json("User registration failed")})
+        }).catch(err =>{console.log(err)})
 
-// })
+})
 
 
 
